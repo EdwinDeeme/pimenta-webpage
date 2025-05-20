@@ -1,0 +1,38 @@
+---
+import AccordionItem from "./AccordionItem.astro";
+
+const content = [
+{
+  index: 1,
+  title: "Reunion de Consulta",
+  description: "En esta reunion nos reuniremos contigo para discutir tus objetivos y necesidades. Queremos entender tu negocio, tu audiencia y tus metas para poder ofrecerte la mejor solución posible."
+},
+{
+  index: 2,
+  title: "Analisis de Necesidades",
+  description: "Después de la reunión inicial, nuestro equipo realizará un análisis exhaustivo de tus necesidades. Esto incluye investigar tu mercado, analizar a la competencia y evaluar tus recursos actuales. Con esta información, podremos desarrollar una estrategia personalizada que se adapte a tus objetivos."
+},
+{
+  index: 3,
+  title: "Implementación",
+  description: "Una vez que tengamos una estrategia clara, comenzaremos a implementar las tácticas necesarias para alcanzar tus objetivos. Esto puede incluir la creación de contenido, la configuración de campañas publicitarias, desarollo del sitio web y más. Nuestro equipo trabajará en estrecha colaboración contigo para asegurarse de que todo esté alineado con tu visión y metas."
+},
+{
+  index: 4,
+  title: "Entrega de Resultados",
+  description: "Después de implementar la estrategia, te entregaremos un informe detallado con los resultados obtenidos. Esto incluirá métricas clave, análisis de rendimiento y recomendaciones para futuras mejoras. Queremos asegurarnos de que estés completamente satisfecho con los resultados y que tengas una comprensión clara de cómo hemos trabajado para alcanzar tus objetivos."
+},
+];
+---
+
+{
+  content.map((item) => {
+    return (
+      <AccordionItem
+        index={item.index}
+        title={item.title}
+        description={item.description}
+      />
+    );
+  })
+}

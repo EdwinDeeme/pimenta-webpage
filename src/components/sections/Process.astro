@@ -1,0 +1,17 @@
+---
+import Accordion from "../ui/Accordion.astro";
+import SectionTitle from "../ui/SectionTitle.astro";
+import Section from "./Section.astro";
+
+const description = "Guía paso a paso hasta conseguir tu objetivo, buscando la mejor manera de exponer todas las capacidades de tu empresa";
+---
+
+<Section id="process">
+  <div class="mt-[140px]">
+    <SectionTitle
+      sectionTitle="Nuestro Flujo de Trabajo"
+      description={description}
+    />
+    <Accordion />
+  </div>
+</Section>

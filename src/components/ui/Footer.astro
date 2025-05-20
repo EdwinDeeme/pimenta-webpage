@@ -1,0 +1,96 @@
+---
+import { Image } from "astro:assets";
+import Facebook from "../../assets/facebook.svg";
+import Linkedin from "../../assets/linkedin.svg";
+import Logo from "../../../public/Logo.svg";
+import Twitter from "../../assets/twitter.svg";
+import ShortForm from "../ui/ShortForm.astro";
+
+const logos = [
+  { name: "Facebook", src: Facebook, link: "https://facebook.com" },
+  { name: "Linkedin", src: Linkedin, link: "https://linkedin.com" },
+  { name: "Twitter", src: Twitter, link: "https://twitter.com" },
+];
+
+const links = [
+  { name: "Nosotros", href: "#about" },
+  { name: "Servicios", href: "#services" },
+  { name: "Casos de Uso", href: "#cases" },
+  { name: "Blog", href: "#Home" },
+];
+---
+
+<section class="sm:px-5">
+  <div class="w-full max-w-[1240px] mx-auto">
+    <div
+      class="px-[15px] bg-dark text-gray py-[55px] lg:px-[60px] sm:rounded-t-[45px]"
+    >
+      <div>
+        <div
+          class="flex flex-col lg:flex-row gap-7 items-center justify-between"
+        >
+          <picture>
+            <a href="#home">
+              <Image src={Logo} alt="Logo for Kreatif Brand" class="w-auto h-14"/>
+            </a>
+          </picture>
+          <ul class="flex flex-col sm:flex-row gap-5">
+            {
+              links.map((link) => {
+                return (
+                  <li class="text-center">
+                    <a class="underline" href={link.href}>
+                      {link.name}
+                    </a>
+                  </li>
+                );
+              })
+            }
+          </ul>
+          <ul class="flex gap-5">
+            {
+              logos.map((logo) => {
+                return (
+                  <li>
+                    <a href={logo.link} target="_blank">
+                      <picture>
+                        <Image src={logo.src} alt={logo.name} />
+                      </picture>
+                    </a>
+                  </li>
+                );
+              })
+            }
+          </ul>
+        </div>
+
+        <div class="flex flex-col lg:flex-row mt-[66px] mb-[51px]">
+          <div
+            class="flex text-center lg:text-start flex-col w-full lg:w-[30%]"
+          >
+            <h3 class="mb-5 text-center md:text-left text-2xl text-green">Contáctanos</h3>
+            <div class="flex flex-col justify-between gap-4">
+              <span> Email: contacto@pimenta.studio </span>
+              <span> Teléfono: +506 6353 6621 </span>
+              <span class="lg:w-3/4">
+                Dirección: San José, Costa Rica.
+              </span>
+            </div>
+          </div>
+          <div class="flex-grow my-10 lg:my-0 lg:ml-12">
+            <ShortForm />
+          </div>
+        </div>
+      </div>
+
+      <div class="h-[1px] bg-gray mb-5"></div>
+      <div
+        class="flex flex-col lg:flex-row h-20 justify-center mt-4 text-center md:justify-between md:mt-0"
+      >
+        <span class="w-full flex justify-center"
+          >2024 Pimenta Studio</span>&nbsp
+        <span>
+      </div>
+    </div>
+  </div>
+</section>
