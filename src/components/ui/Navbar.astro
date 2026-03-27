@@ -3,11 +3,13 @@ import { Astronav } from "astro-navbar";
 
 const menuitems = [
   { href: '/#services', label: 'Servicios' },
-  { href: '/#cases', label: 'Casos de Uso' },
-  { href: '/articles', label: 'Blog'},
+  { href: '/portfolio', label: 'Proyectos' },
+  { href: '/#products', label: 'Productos' },
+  { href: '/#contact', label: 'Contacto' },
+  { href: '/articles', label: 'Blog' },
 ];
 
-const navButton = { href: 'https://api.whatsapp.com/send?phone=63536621&text=Hola,%20estoy%20interesado%20en%20sus%20servicios.%20Quiero%20m%C3%A1s%20informaci%C3%B3n.', label: 'Contáctanos' };
+const navButton = { href: 'https://api.whatsapp.com/send?phone=50663536621&text=Hola,%20estoy%20interesado%20en%20los%20servicios%20de%20Pimenta%20Studio.', label: 'Agendar Reunión' };
 ---
 
 <div class="mt-20">
@@ -16,7 +18,7 @@ const navButton = { href: 'https://api.whatsapp.com/send?phone=63536621&text=Hol
       <Astronav>
         <div class="flex w-full lg:w-auto items-center justify-between">
           <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src="/Logo.svg" class="h-16" alt="Logo" />
+            <img src="/Logo.svg" class="h-20" alt="Logo" />
           </a>
           <div class="block lg:hidden">
             <div id="menu-icon" class="w-8 h-8 text-black cursor-pointer">
