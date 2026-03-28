@@ -1,9 +1,5 @@
 ---
-import { Image } from "astro:assets";
 import Card from "./Card.astro";
-
-import gob from "../../assets/icon6.svg";
-import wob from "../../assets/icon7.svg";
 
 /* 
 1. Gray card with green title and green on black icon 
@@ -11,7 +7,41 @@ import wob from "../../assets/icon7.svg";
 3. Black card with gray title and gray on black icon
 */
 
-const { index, titleTop, titleBottom, img, alt, link } = Astro.props;
+const { index, titleTop, titleBottom, alt, link, svgIndex } = Astro.props;
+
+const svgs = [
+  // 0 - Desarrollo Web: browser/código
+  `<svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+    <rect x="2" y="3" width="20" height="14" rx="2"/>
+    <path d="M8 21h8M12 17v4"/>
+    <circle cx="7" cy="8" r="1"/>
+    <circle cx="11" cy="8" r="1"/>
+  </svg>`,
+  // 1 - Marketing Digital: megáfono
+  `<svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+    <path d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/>
+  </svg>`,
+  // 2 - Diseño & Branding: pincel
+  `<svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+    <path d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"/>
+  </svg>`,
+  // 3 - SEO & Posicionamiento: lupa con gráfico
+  `<svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+    <path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803zM13.5 10.5h-6"/>
+    <path d="M10.5 7.5v6"/>
+  </svg>`,
+  // 4 - Software a Medida: engranaje
+  `<svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+    <path d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z"/>
+    <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+  </svg>`,
+  // 5 - Consultoría Estratégica: bombilla
+  `<svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/>
+  </svg>`,
+];
+
+const currentSvg = svgs[svgIndex ?? 0];
 ---
 
 <Card isUnderline={true}>
@@ -26,20 +56,17 @@ const { index, titleTop, titleBottom, img, alt, link } = Astro.props;
         >{titleBottom}</span
       >
     </h3>
-    <picture
-      class="w-full h-full row-span-1 order-1 lg:order-none lg:row-span-2 flex justify-center items-center"
-    >
-      <Image
-        src={img}
-        alt={alt}
-        class="h-[100px] w-auto sm:h-auto sm:w-3/4 object-cover"
-      />
-    </picture>
+    <div
+      class="service-card-inner w-full h-full row-span-1 order-1 lg:order-none lg:row-span-2 flex justify-center items-center"
+      set:html={currentSvg}
+    />
     <div class="flex items-end">
-      <a href={link} class="flex items-center gap-3.5"
-        ><Image src={index === 1 || index === 2 ? gob : wob} alt={alt} />
-        <span class="hidden sm:block">Ver más</span></a
-      >
+      <a href={link} class="flex items-center gap-3.5">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10"/>
+        </svg>
+        <span class="hidden sm:block">Ver más</span>
+      </a>
     </div>
   </div>
 </Card>
@@ -47,5 +74,11 @@ const { index, titleTop, titleBottom, img, alt, link } = Astro.props;
 <style>
   .custom-grid {
     grid-template: auto auto;
+  }
+  .service-card-inner {
+    transition: transform 0.3s ease;
+  }
+  .service-card-inner:hover {
+    transform: scale(1.1);
   }
 </style>

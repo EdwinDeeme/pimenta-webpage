@@ -1,38 +1,32 @@
 [
     {
         "index": 1,
-        "name": "John Smith",
-        "role": "Marketing dierector at XYZ",
-        "comment": "We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence."
+        "name": "Carlos Méndez",
+        "role": "CEO en Boutique Alma",
+        "comment": "Pimenta Studio transformó nuestra presencia digital por completo. La tienda online que desarrollaron superó todas nuestras expectativas y las ventas aumentaron un 40% en el primer trimestre. Un equipo profesional, puntual y con mucho talento."
     },
     {
         "index": 2,
-        "name": "Jane Doe",
-        "role": "CEO at ABC",
-        "comment": "We chose Positivus to help us with our SEO and PPC campaigns and have been very impressed with their results. They are knowledgeable, responsive, and truly care about the success of our business. We highly recommend Positivus to any company looking to grow their online presence."
+        "name": "Laura Vargas",
+        "role": "Directora de Marketing en Impulso Agency",
+        "comment": "Trabajar con Pimenta Studio fue una experiencia excelente. La landing page que crearon para nuestro lanzamiento alcanzó una tasa de conversión del 8% y generamos más de 300 leads en dos semanas. Definitivamente los recomiendo."
     },
     {
         "index": 3,
-        "name": "Alice Johnson",
-        "role": "Owner at 123",
-        "comment": "I recently started working with Positivus and have been very impressed with their professionalism and expertise. They have helped me increase my online visibility and generate more leads for my business. I highly recommend Positivus to anyone looking to improve their online marketing strategy."
+        "name": "Andrés Solano",
+        "role": "Fundador de TeamFlow",
+        "comment": "El equipo de Pimenta Studio construyó nuestra plataforma SaaS desde cero con una arquitectura sólida y escalable. Su capacidad técnica y comunicación durante todo el proceso fueron impecables. Son nuestros socios tecnológicos de confianza."
     },
     {
         "index": 4,
-        "name": "Bob Brown",
-        "role": "Dierector at XYZ",
-        "comment": "Positivus has been a great partner for our company. They are knowledgeable, responsive, and truly care about the success of our business. We have seen a significant increase in website traffic and leads as a result of their efforts. I highly recommend Positivus to any company looking to grow their online presence."
+        "name": "María Fernández",
+        "role": "Gerente General en Distribuidora Norte",
+        "comment": "Contratamos a Pimenta Studio para una consultoría de SEO y los resultados fueron increíbles. En tres meses pasamos a primera página en Google para nuestras palabras clave principales y el tráfico orgánico se duplicó."
     },
     {
         "index": 5,
-        "name": "Gupta Patel",
-        "role": "Content creator",
-        "comment": "I have been working with Positivus for the past year and have been very impressed with their professionalism and expertise. They have helped me increase my online visibility and generate more leads for my business. I highly recommend Positivus to anyone looking to improve their online marketing strategy."
-    },
-    {
-        "index": 6,
-        "name": "Sara Johnson",
-        "role": "Freelancer",
-        "comment": "Positivus made a huge difference in our online presence. They are knowledgeable, responsive, and truly care about the success of our business. We have seen a significant increase in website traffic and leads as a result of their efforts. I highly recommend Positivus to any company looking to grow their online presence."
+        "name": "Roberto Jiménez",
+        "role": "Director Comercial en TechSolutions CR",
+        "comment": "El software a medida que desarrolló Pimenta Studio automatizó procesos que antes nos tomaban horas. La inversión se recuperó en menos de seis meses. Profesionales, creativos y muy comprometidos con los resultados."
     }
 ]

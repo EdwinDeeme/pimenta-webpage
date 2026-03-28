@@ -9,27 +9,52 @@ import s6 from "../../assets/company/company-logo6.svg";
 import Section from "./Section.astro";
 
 const sponsors = [
-  { logo: s6, alt: "Amazon logo" },
-  { logo: s5, alt: "Dribble logo" },
-  { logo: s4, alt: "HubSpot logo" },
-  { logo: s3, alt: "Notion logo" },
-  { logo: s2, alt: "Netflix logo" },
-  { logo: s1, alt: "Zoom logo" },
+  { logo: s1, alt: "Astro" },
+  { logo: s2, alt: "React" },
+  { logo: s3, alt: "TailwindCSS" },
+  { logo: s4, alt: "WordPress" },
+  { logo: s5, alt: "Stripe" },
+  { logo: s6, alt: "Supabase" },
 ];
 ---
 
 <Section id="sponsors">
-  <div class="flex-row items-center">
-  <div class="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-6">
-    {
-      sponsors.map((sponsor) => {
-        return (
-          <div class="p-4 grayscale transition duration-200 hover:grayscale-0">
-            <Image src={sponsor.logo} class="h-12 w-auto mx-auto" alt={sponsor.alt} loading="lazy" />
-          </div>
-        );
-      })
-    }
+  <div class="sponsors-marquee-wrapper">
+    <div class="sponsors-marquee" aria-label="Tecnologías que usamos">
+      <div class="sponsors-track">
+        {sponsors.map(s => <div class="sponsor-item"><Image src={s.logo} class="h-10 w-auto" alt={s.alt} loading="lazy" /></div>)}
+      </div>
+      <div class="sponsors-track" aria-hidden="true">
+        {sponsors.map(s => <div class="sponsor-item"><Image src={s.logo} class="h-10 w-auto" alt={s.alt} loading="lazy" /></div>)}
+      </div>
+    </div>
   </div>
-  </div> 
 </Section>
+
+<style>
+  .sponsors-marquee-wrapper {
+    overflow: hidden;
+  }
+
+  .sponsors-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee var(--marquee-duration) linear infinite;
+  }
+
+  .sponsors-track {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .sponsor-item {
+    filter: grayscale(1);
+    transition: filter 200ms ease;
+  }
+
+  .sponsor-item:hover {
+    filter: grayscale(0);
+  }
+</style>

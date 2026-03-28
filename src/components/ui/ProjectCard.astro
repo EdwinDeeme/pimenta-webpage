@@ -1,0 +1,110 @@
+---
+import Card from "./Card.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  slug: string;
+}
+
+const { title, description, image, tags, slug } = Astro.props;
+---
+
+<Card isUnderline={true}>
+  <a href={`/portfolio/${slug}`} class="project-card animate-on-scroll" aria-label={`Ver proyecto ${title}`}>
+    {image ? (
+      <img src={image} alt={title} class="project-card__img" />
+    ) : (
+      <div class="project-card__placeholder"></div>
+    )}
+
+    <!-- Overlay con toda la info -->
+    <div class="project-card__overlay">
+      <div class="project-card__info">
+        <div class="flex flex-wrap gap-2 mb-3">
+          {tags.map(tag => (
+            <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-white/20 text-white border border-white/30">
+              {tag}
+            </span>
+          ))}
+        </div>
+        <h3 class="text-white font-medium text-lg leading-snug mb-2">{title}</h3>
+        <p class="project-card__desc">{description}</p>
+        <span class="project-card__cta">
+          Ver Proyecto →
+        </span>
+      </div>
+    </div>
+  </a>
+</Card>
+
+<style>
+  .project-card {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 45px;
+    aspect-ratio: 1 / 1;
+  }
+
+  .project-card__img,
+  .project-card__placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 400ms ease-out;
+    display: block;
+  }
+
+  .project-card__placeholder {
+    background: linear-gradient(135deg, var(--accent), var(--dark));
+  }
+
+  .project-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.88) 60%, rgba(0,0,0,0.3) 100%);
+    opacity: 0;
+    transition: opacity 350ms ease-out;
+    display: flex;
+    align-items: flex-end;
+    padding: 1.75rem;
+  }
+
+  .project-card__info {
+    transform: translateY(12px);
+    transition: transform 350ms ease-out;
+  }
+
+  .project-card__desc {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .project-card__cta {    display: inline-block;
+    margin-top: 0.75rem;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  /* Hover states */
+  .project-card:hover .project-card__img {
+    transform: scale(1.06);
+  }
+
+  .project-card:hover .project-card__overlay {
+    opacity: 1;
+  }
+
+  .project-card:hover .project-card__info {
+    transform: translateY(0);
+  }
+</style>

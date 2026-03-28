@@ -1,86 +1,83 @@
 ---
 import SectionTitle from "../ui/SectionTitle.astro";
-import ServiceCard from "../ui/ServiceCard.astro";
 import Section from "./Section.astro";
 
-import c1 from "../../assets/pics/card-pic1.png";
-import c2 from "../../assets/pics/card-pic2.png";
-import c3 from "../../assets/pics/card-pic3.png";
-import c4 from "../../assets/pics/card-pic4.png";
-import c5 from "../../assets/pics/card-pic5.png";
-import c6 from "../../assets/pics/card-pic6.png";
-
-const cards = [
+const services = [
   {
-    index: 1,
-    titleTop: "Otimizacion de Motores",
-    titleBottom: "de Busqueda (SEO)",
-    img: c1,
-    alt: "SEO",
-    link: "https://google.com",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8l3 3-3 3"/><path d="M13 14h3"/></svg>`,
+    title: "Desarrollo Web",
+    description: "Sitios y aplicaciones web rápidas, escalables y optimizadas para convertir visitantes en clientes.",
   },
   {
-    index: 2,
-    titleTop: "Desarollo de",
-    titleBottom: "Páginas Web",
-    img: c2,
-    alt: "SEO",
-    link: "https://google.com",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>`,
+    title: "Marketing Digital",
+    description: "Estrategias de contenido, pauta y redes sociales orientadas a resultados medibles.",
   },
   {
-    index: 3,
-    titleTop: "Marketing de",
-    titleBottom: "Redes Sociales",
-    img: c3,
-    alt: "SEO",
-    link: "https://google.com",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"/></svg>`,
+    title: "Diseño & Branding",
+    description: "Identidad visual coherente y memorable que comunica los valores de tu marca.",
   },
   {
-    index: 1,
-    titleTop: "Desarrollo",
-    titleBottom: "De Marca",
-    img: c4,
-    alt: "SEO",
-    link: "https://google.com",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0015.803 15.803z"/><path d="M13.5 10.5h-6M10.5 7.5v6"/></svg>`,
+    title: "SEO & Posicionamiento",
+    description: "Optimización técnica y de contenido para que te encuentren primero en Google.",
   },
   {
-    index: 2,
-    titleTop: "Creación de",
-    titleBottom: "Contenido",
-    img: c5,
-    alt: "SEO",
-    link: "https://google.com",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z"/><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>`,
+    title: "Software a Medida",
+    description: "Plataformas y herramientas personalizadas que automatizan y escalan tu operación.",
   },
   {
-    index: 3,
-    titleTop: "Automatización",
-    titleBottom: "De Procesos",
-    img: c6,
-    alt: "SEO",
-    link: "https://google.com",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg>`,
+    title: "Consultoría Estratégica",
+    description: "Acompañamiento para tomar decisiones digitales con claridad, datos y visión de negocio.",
   },
 ];
-
-const description =
-  "Conoce los servicios que ofrecemos para ayudarte a alcanzar tus objetivos. Tenemos todo lo que necesitas para llevar tu negocio al siguiente nivel.";
 ---
 
 <Section id="services">
   <div class="mt-[140px] mb-5">
-    <SectionTitle sectionTitle="Servicios" description={description} />
-    <div class="grid lg:grid-cols-2 lg:grid-rows-3 gap-10">
-      {
-        cards.map((card) => (
-          <ServiceCard
-            index={card.index}
-            titleTop={card.titleTop}
-            titleBottom={card.titleBottom}
-            img={card.img}
-            alt={card.alt}
-            link={card.link}
-          />
-        ))
-      }
+    <SectionTitle
+      sectionTitle="Servicios"
+      description="Soluciones digitales completas para llevar tu negocio al siguiente nivel."
+    />
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
+      {services.map((service, i) => (
+        <a
+          href="/#contact"
+          class="service-item group flex flex-col gap-3 p-4 md:p-6 rounded-2xl border border-zinc-100 bg-white hover:border-zinc-900 hover:shadow-md transition-all duration-300 opacity-0 translate-y-4"
+          style={`transition-delay: ${i * 60}ms`}
+        >
+          <div class="w-8 h-8 md:w-10 md:h-10 text-zinc-800 group-hover:text-green transition-colors duration-300" set:html={service.icon} />
+          <div>
+            <h3 class="font-semibold text-zinc-900 text-base md:text-lg leading-snug">{service.title}</h3>
+            <p class="text-zinc-500 text-xs md:text-sm mt-1 leading-relaxed">{service.description}</p>
+          </div>
+          <div class="mt-auto flex items-center gap-1 text-xs md:text-sm font-medium text-zinc-400 group-hover:text-zinc-900 transition-colors duration-300">
+            Saber más
+            <svg class="w-3 h-3 md:w-4 md:h-4 translate-x-0 group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </div>
+        </a>
+      ))}
     </div>
   </div>
 </Section>
+
+<script>
+  const items = document.querySelectorAll('.service-item');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('opacity-0', 'translate-y-4');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+  items.forEach((item) => observer.observe(item));
+</script>

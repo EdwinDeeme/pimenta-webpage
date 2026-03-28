@@ -1,143 +1,123 @@
 ---
-import Testimonials from "../../data/clientData.json";
-
-const processedTestimonials = Testimonials.map((item, index, array) => ({
-  ...item,
-  index: index + 1,
-  length: array.length
-}));
+import testimonials from "../../data/clientData.json";
 ---
 
-<div
-  id="ProjectSlider"
-  class="swiper mt-10"
-  style={{
-    "--swiper-pagination-color": "var(--green)",
-    "--swiper-pagination-bullet-inactive-color": "#fff",
-    "--swiper-pagination-bullet-inactive-opacity": "1",
-    "--swiper-pagination-bullet-size": "19px",
-    "--swiper-pagination-bullet-horizontal-gap": "10px",
-  }}
->
-  <div class="swiper-wrapper mt-[84px] mb-[124px]" data-cursor="swipe">
-    {
-      processedTestimonials.map((item) => (
-        <div
-          class="swiper-slide text-gray flex flex-col"
-          role="group"
-          aria-label={`${item.index} / ${item.length}`}
-        >
-          <div class="flex flex-col justify-center items-center py-[48px] px-6 sm:px-[52px]">
-            <p class="bubble">
-              "{item.comment}"
-            </p>
-          </div>
-          <div class="w-full px-10 sm:px-20 ">
-            <div class="text-green font-medium">{item.name}</div>
-            <div>{item.role}</div>
+<div class="relative mt-12 mb-16">
+  <!-- Carousel track wrapper -->
+  <div class="overflow-hidden" id="testimonials-viewport">
+    <div class="flex gap-6 transition-transform duration-500 ease-in-out" id="testimonials-track">
+      {testimonials.map((item) => (
+        <div class="testimonial-card shrink-0 bg-white border border-zinc-100 rounded-2xl p-8 shadow-sm flex flex-col gap-6">
+          <svg class="text-green w-8 h-8 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/>
+          </svg>
+          <p class="text-zinc-600 text-base leading-relaxed flex-1">"{item.comment}"</p>
+          <div class="border-t border-zinc-100 pt-4">
+            <p class="font-semibold text-zinc-900">{item.name}</p>
+            <p class="text-sm text-zinc-400">{item.role}</p>
           </div>
         </div>
-      ))
-    }
+      ))}
+    </div>
   </div>
-  <div class="flex justify-around lg:justify-center mb-[68px] lg:gap-[189px]">
-    <div class="swiper-button-prev w-7 h-7 sm:w-10 sm:h-10">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
-        ><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-        <path
-          fill="#ffffff"
-          d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
-        ></path></svg
-      >
-    </div>
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-next w-7 h-7 sm:w-10 sm:h-10 rotate-180">
-      <svg xmlns="http://www.w3.org/2000/svg " viewBox="0 0 448 512">
-        <path
-          fill="#ffffff"
-          d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
-        ></path></svg
-      >
-    </div>
+
+  <!-- Navigation arrows -->
+  <div class="flex items-center justify-center gap-4 mt-8">
+    <button id="prev-btn" aria-label="Anterior" class="w-10 h-10 rounded-full border border-zinc-200 flex items-center justify-center hover:border-zinc-900 hover:bg-zinc-900 hover:text-white transition-colors text-zinc-600 disabled:opacity-30 disabled:cursor-not-allowed">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+
+    <!-- Dots -->
+    <div id="testimonials-dots" class="flex gap-2"></div>
+
+    <button id="next-btn" aria-label="Siguiente" class="w-10 h-10 rounded-full border border-zinc-200 flex items-center justify-center hover:border-zinc-900 hover:bg-zinc-900 hover:text-white transition-colors text-zinc-600 disabled:opacity-30 disabled:cursor-not-allowed">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
   </div>
 </div>
+
 <script>
-  import "swiper/css";
-  import "swiper/css/pagination";
-  import Swiper from "swiper";
-  import { Pagination, Navigation } from "swiper/modules";
-  import { register } from "swiper/element/bundle";
-  register();
+  const track = document.getElementById('testimonials-track') as HTMLElement;
+  const prevBtn = document.getElementById('prev-btn') as HTMLButtonElement;
+  const nextBtn = document.getElementById('next-btn') as HTMLButtonElement;
+  const dotsContainer = document.getElementById('testimonials-dots') as HTMLElement;
 
-  Swiper.use([Pagination, Navigation]);
+  const GAP = 24;
+  const total = track.children.length;
+  let current = 0;
+  let autoplayTimer: ReturnType<typeof setInterval>;
 
-  new Swiper("#ProjectSlider", {
-    modules: [Pagination, Navigation],
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    loop: true,
-    autoplay: false,
-    grabCursor: false,
-    mousewheel: false,
-    slidesPerView: 2,
-    centeredSlides: true,
-    spaceBetween: 50,
-    breakpoints: {
-      1024: {
-        slidesPerView: 2,
-      },
-      320: {
-        slidesPerView: 1,
-      },
-    },
+  function getPerPage(): number {
+    return window.innerWidth >= 768 ? 3 : 1;
+  }
+
+  function setCardWidths() {
+    const perPage = getPerPage();
+    const viewport = (track.parentElement as HTMLElement).offsetWidth;
+    const cardWidth = (viewport - GAP * (perPage - 1)) / perPage;
+    Array.from(track.children).forEach((card) => {
+      (card as HTMLElement).style.width = `${cardWidth}px`;
+    });
+    return cardWidth;
+  }
+
+  function getMaxIndex(): number {
+    return total - getPerPage();
+  }
+
+  function buildDots() {
+    dotsContainer.innerHTML = '';
+    const max = getMaxIndex();
+    for (let i = 0; i <= max; i++) {
+      const dot = document.createElement('button');
+      dot.className = `w-2 h-2 rounded-full transition-colors duration-300 ${i === current ? 'bg-zinc-900' : 'bg-zinc-300'}`;
+      dot.setAttribute('aria-label', `Testimonio ${i + 1}`);
+      dot.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  function updateDots() {
+    dotsContainer.querySelectorAll('button').forEach((dot, i) => {
+      dot.className = `w-2 h-2 rounded-full transition-colors duration-300 ${i === current ? 'bg-zinc-900' : 'bg-zinc-300'}`;
+    });
+  }
+
+  function goTo(index: number) {
+    const max = getMaxIndex();
+    if (index < 0) index = max;
+    if (index > max) index = 0;
+    current = index;
+    const cardWidth = (track.children[0] as HTMLElement).offsetWidth;
+    track.style.transform = `translateX(-${current * (cardWidth + GAP)}px)`;
+    updateDots();
+  }
+
+  function startAutoplay() {
+    autoplayTimer = setInterval(() => goTo(current + 1), 4000);
+  }
+
+  function resetAutoplay() {
+    clearInterval(autoplayTimer);
+    startAutoplay();
+  }
+
+  prevBtn.addEventListener('click', () => { goTo(current - 1); resetAutoplay(); });
+  nextBtn.addEventListener('click', () => { goTo(current + 1); resetAutoplay(); });
+
+  window.addEventListener('resize', () => {
+    current = 0;
+    setCardWidths();
+    buildDots();
+    goTo(0);
   });
+
+  setCardWidths();
+  buildDots();
+  goTo(0);
+  startAutoplay();
 </script>
-<style>
-  .bubble {
-    position: relative;
-    padding: 8%;
-    background-color: var(--dark);
-    color: var(--gray);
-    border-radius: 45px;
-    border: 1px solid var(--green);
-  }
-  .bubble:after {
-    content: "";
-    position: absolute;
-    bottom: -20px; /* Adjust this value to move the arrow up or down */
-    left: 50px; /* Adjust this value to move the arrow left or right */
-    border-width: 22px; /* Adjust this value to change the size of the arrow */
-    border-style: solid;
-    border-color: var(--dark) transparent transparent var(--dark);
-  }
-  .bubble:before {
-    content: "";
-    position: absolute;
-    bottom: -40px; /* This should be 2px more than the bottom value of .bubble:after */
-    left: 48px; /* This should be 1px less than the left value of .bubble:after */
-    border-width: 20px; /* Adjust this to match the border-width of .bubble:after */
-    border-style: solid;
-    border-color: var(--green) transparent transparent var(--green);
-  }
-  .swiper-wrapper {
-    position: relative;
-  }
-  .swiper-slide {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 500ms ease-in-out;
-  }
-  .swiper-pagination {
-    display: flex;
-    align-items: center;
-    width: auto !important;
-    position: static !important;
-  }
-</style>

@@ -1,9 +1,8 @@
 ---
-import Accordion from "../ui/Accordion.astro";
 import SectionTitle from "../ui/SectionTitle.astro";
 import Section from "./Section.astro";
 
-const description = "Guía paso a paso hasta conseguir tu objetivo, buscando la mejor manera de exponer todas las capacidades de tu empresa";
+const description = "Nuestro proceso está diseñado para garantizar resultados claros y medibles en cada proyecto.";
 ---
 
 <Section id="process">
@@ -12,6 +11,54 @@ const description = "Guía paso a paso hasta conseguir tu objetivo, buscando la 
       sectionTitle="Nuestro Flujo de Trabajo"
       description={description}
     />
-    <Accordion />
+
+    <div class="process-timeline relative max-w-4xl mx-auto" data-stagger-container>
+      <!-- Línea central (solo desktop) -->
+      <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-dark/20 -translate-x-1/2" aria-hidden="true"></div>
+
+      <!-- Paso 1 (izquierda en desktop) -->
+      <div class="process-step process-step--left animate-on-scroll flex flex-col md:flex-row items-start md:items-center gap-6 mb-16 md:pr-[calc(50%+2rem)]">
+        <div class="flex-shrink-0">
+          <span class="text-7xl font-medium leading-none" style="color: rgba(255,147,39,0.2)">01</span>
+        </div>
+        <div class="bg-gray rounded-[30px] p-8 border border-dark/10 shadow-sm flex-1">
+          <h3 class="text-xl font-medium mb-3">Consulta Inicial</h3>
+          <p class="text-dark/70 text-sm leading-relaxed">Nos reunimos contigo para entender tu negocio, tus objetivos y tus necesidades. Esta conversación nos permite identificar las oportunidades y definir el alcance del proyecto antes de proponer cualquier solución.</p>
+        </div>
+      </div>
+
+      <!-- Paso 2 (derecha en desktop) -->
+      <div class="process-step process-step--right animate-on-scroll flex flex-col md:flex-row-reverse items-start md:items-center gap-6 mb-16 md:pl-[calc(50%+2rem)]">
+        <div class="flex-shrink-0">
+          <span class="text-7xl font-medium leading-none" style="color: rgba(255,147,39,0.2)">02</span>
+        </div>
+        <div class="bg-gray rounded-[30px] p-8 border border-dark/10 shadow-sm flex-1">
+          <h3 class="text-xl font-medium mb-3">Análisis y Propuesta</h3>
+          <p class="text-dark/70 text-sm leading-relaxed">Analizamos tu mercado, competencia y recursos actuales. Con esa información elaboramos una propuesta detallada con estrategia, tecnologías recomendadas, cronograma y presupuesto.</p>
+        </div>
+      </div>
+
+      <!-- Paso 3 (izquierda en desktop) -->
+      <div class="process-step process-step--left animate-on-scroll flex flex-col md:flex-row items-start md:items-center gap-6 mb-16 md:pr-[calc(50%+2rem)]">
+        <div class="flex-shrink-0">
+          <span class="text-7xl font-medium leading-none" style="color: rgba(255,147,39,0.2)">03</span>
+        </div>
+        <div class="bg-gray rounded-[30px] p-8 border border-dark/10 shadow-sm flex-1">
+          <h3 class="text-xl font-medium mb-3">Desarrollo e Implementación</h3>
+          <p class="text-dark/70 text-sm leading-relaxed">Ejecutamos el proyecto con metodologías ágiles, manteniéndote informado en cada etapa. Desde el diseño hasta el desarrollo y las pruebas, trabajamos en estrecha colaboración contigo.</p>
+        </div>
+      </div>
+
+      <!-- Paso 4 (derecha en desktop) -->
+      <div class="process-step process-step--right animate-on-scroll flex flex-col md:flex-row-reverse items-start md:items-center gap-6 mb-16 md:pl-[calc(50%+2rem)]">
+        <div class="flex-shrink-0">
+          <span class="text-7xl font-medium leading-none" style="color: rgba(255,147,39,0.2)">04</span>
+        </div>
+        <div class="bg-gray rounded-[30px] p-8 border border-dark/10 shadow-sm flex-1">
+          <h3 class="text-xl font-medium mb-3">Entrega y Soporte</h3>
+          <p class="text-dark/70 text-sm leading-relaxed">Lanzamos el proyecto y te entregamos un informe con los resultados y métricas clave. Además, ofrecemos soporte continuo para garantizar que todo funcione correctamente.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </Section>

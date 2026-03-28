@@ -30,6 +30,7 @@
 
   :root {
     --green: #ff9327;
+    --accent: #ff9327;
     --black: rgb(0, 0, 0);
     --dark: #191a23;
     --gray: #f3f3f3;
@@ -162,4 +163,65 @@
   margin: 20px 0;
   font-size: 1.4rem;
   font-weight: bold;
+}
+
+/* ── UI Improvements: animation variables ── */
+:root {
+  --marquee-duration: 30s;
+  --scroll-anim-duration: 500ms;
+  --scroll-anim-easing: ease-out;
+  --scroll-anim-distance: 20px;
+}
+
+/* ── Keyframes ── */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-20px); }
+}
+
+@keyframes float-fast {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(-12px) rotate(5deg); }
+}
+
+@keyframes fadeScaleIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── ScrollObserver utility classes ── */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(var(--scroll-anim-distance));
+  transition:
+    opacity   var(--scroll-anim-duration) var(--scroll-anim-easing),
+    transform var(--scroll-anim-duration) var(--scroll-anim-easing);
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .sponsors-marquee {
+    animation: none;
+    flex-wrap: wrap;
+    width: auto;
+    justify-content: center;
+  }
+  .sponsors-track[aria-hidden="true"] {
+    display: none;
+  }
 }

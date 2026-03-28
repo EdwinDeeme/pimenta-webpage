@@ -7,20 +7,20 @@ const cards = [
   {
     index: 0,
     title:
-      "For a local restaurant, we implemented a targeted PPC campaign that resulted in a 50% increase in website traffic and a 25% increase in sales.",
-    link: "https://google.com",
+      "Para Cabañas Don Ramiro desarrollamos un sitio web con motor de reservas integrado y sincronización automática con Booking y Airbnb, aumentando las reservas directas y eliminando la dependencia de plataformas de terceros.",
+    link: "/portfolio/caba%C3%B1as-don-ramiro",
   },
   {
     index: 1,
     title:
-      "For a B2B software company, we developed an SEO strategy that resulted in a first page ranking for key keywords and a 200% increase in organic traffic.",
-    link: "https://google.com",
+      "Para Tierras Gosén creamos un sitio web conectado a un chatbot de WhatsApp vía ManyChat, automatizando la atención al cliente 24/7 y reduciendo significativamente el tiempo de respuesta a consultas.",
+    link: "/portfolio/tierras-gosen",
   },
   {
-    index: 1,
+    index: 2,
     title:
-      "For a national retail chain, we created a social media marketing campaign that increased followers by 25% and generated a 20% increase in online sales.",
-    link: "https://google.com",
+      "Para Ticomotor construimos una aplicación web de compra y venta de autos con inteligencia artificial integrada, posicionándose como referencia en el mercado automotriz costarricense.",
+    link: "/portfolio/ticomotor",
   },
 ];
 
@@ -29,9 +29,10 @@ import SectionTitle from "../ui/SectionTitle.astro";
 ---
 
 <Section id="cases">
+  <div class="mt-[140px] mb-5">
   <SectionTitle
-    sectionTitle="Casos de Estudio"
-    description="Conoce algunos de nuestros casos de éxito y cómo hemos ayudado a nuestros clientes a alcanzar sus objetivos."
+    sectionTitle="Casos de Éxito"
+    description="Resultados reales que hemos logrado para nuestros clientes."
   />
   <div class="flex flex-col lg:flex-row justify-between rounded-[45px] p-1 gap-10">
     {
@@ -51,5 +52,6 @@ import SectionTitle from "../ui/SectionTitle.astro";
         </Card>
       ))
     }
+  </div>
   </div>
 </Section>

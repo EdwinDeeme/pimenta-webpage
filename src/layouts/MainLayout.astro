@@ -24,6 +24,37 @@ const { ...props } = Astro.props;
     }
   </style>
   <script src="../utils/lenis"></script>
+  <script is:inline>
+    function initScrollObserver() {
+      const elements = document.querySelectorAll('.animate-on-scroll');
+      if (!('IntersectionObserver' in window)) {
+        elements.forEach(el => el.classList.add('is-visible'));
+        return;
+      }
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const container = el.closest('[data-stagger-container]');
+            if (container) {
+              const siblings = Array.from(container.querySelectorAll('.animate-on-scroll'));
+              const index = siblings.indexOf(el);
+              el.style.transitionDelay = `${index * 100}ms`;
+            }
+            el.classList.add('is-visible');
+            observer.unobserve(el);
+          }
+        });
+      }, { threshold: 0.05, rootMargin: '0px 0px 0px 0px' });
+      elements.forEach(el => observer.observe(el));
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initScrollObserver);
+    } else {
+      initScrollObserver();
+    }
+    document.addEventListener('astro:after-swap', initScrollObserver);
+  </script>
   <body class="bg-white font-grotesk">
     <main>
       <Navbar />

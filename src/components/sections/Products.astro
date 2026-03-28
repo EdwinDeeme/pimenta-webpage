@@ -1,0 +1,48 @@
+---
+import Section from "./Section.astro";
+import SectionTitle from "../ui/SectionTitle.astro";
+import ProductCard from "../ui/ProductCard.astro";
+
+const products = [
+  {
+    name: "PimentaOS",
+    description:
+      "Gestiona tus clientes, proyectos y pipeline de ventas desde un solo lugar. Diseñado para agencias y equipos de desarrollo web que quieren crecer sin perder el control.",
+    status: "En construcción" as const,
+    url: "https://pimenta.studio",
+  },
+  {
+    name: "FitMaster",
+    description:
+      "Gestión total de gimnasios, membresías, rutinas, recordatorios, finanzas, equipo y más..",
+    status: "En costrucción" as const,
+    url: "https://piment.studio",
+  },
+  {
+    name: "VisualNote",
+    description:
+      "Bloc de notas basado en la Web con IA integrada",
+    status: "Beta" as const,
+    url: "https://visualnote.vercel.app"
+  },
+];
+
+const description =
+  "Herramientas SaaS creadas por Pimenta Studio para potenciar agencias, equipos de marketing y negocios digitales.";
+---
+
+<Section id="products">
+  <div class="mt-[140px]">
+    <SectionTitle sectionTitle="Nuestros Productos" description={description} />
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-stagger-container>
+      {products.map((product) => (
+        <ProductCard
+          name={product.name}
+          description={product.description}
+          status={product.status}
+          url={product.url}
+        />
+      ))}
+    </div>
+  </div>
+</Section>

@@ -1,22 +1,136 @@
 ---
 import Section from "./Section.astro";
-import { Image } from "astro:assets";
-import HeroIlust from "../../assets/pics/hero.svg";
 ---
 
 <Section id="home">
-<div class="relative flex flex-col-reverse items-center md:flex-row" id="hero">
-    <div class="row items-center py-5 md:w-6/12 md:pb-20 md:pt-10">
+<div class="relative flex flex-col items-center md:flex-row" id="hero" style="padding-top: 0">
+    <div class="row items-center pb-4 md:w-6/12 md:pb-20 md:pt-10">
         <div class="text-left space-y-3">
-            <h1 class="text-4xl font-medium leading-none md:text-6xl text-center md:text-left">Explota el Potencial<br> De tu Negocio</h1>
-            <p class="mt-6 mb-8 text-lg font-normal leading-7 sm:mb-12 text-center md:text-left md:pr-12">Ayudamos a las empresas a crecer y tener éxito en Internet mediante una serie de servicios que incluyen SEO, PPC, marketing en redes sociales y creación de contenidos.</p>
-            <div class="w-full justify-center md:justify-start items-center inline-flex">
-                <a href="https://api.whatsapp.com/send?phone=63536621&text=Hola,%20estoy%20interesado%20en%20sus%20servicios.%20Quiero%20m%C3%A1s%20informaci%C3%B3n." target="_blank" class="px-8 py-5 bg-zinc-900 hover:bg-white rounded-2xl text-center text-white hover:text-black border text-xl font-normal leading-7">Agendar Reunión</a>
+            <h1 class="text-4xl font-medium leading-tight md:text-6xl text-center md:text-left">Construimos el futuro digital de tu empresa</h1>
+            <p class="mt-4 mb-6 text-base font-normal leading-7 text-center md:text-left md:pr-12">Desarrollo web, marketing digital, diseño y software a medida para empresas que quieren crecer en el mundo digital.</p>
+            <div class="w-full justify-center md:justify-start items-center flex flex-row gap-3">
+                <a href="https://api.whatsapp.com/send?phone=50663536621&text=Hola,%20estoy%20interesado%20en%20los%20servicios%20de%20Pimenta%20Studio." target="_blank" class="px-5 py-3 md:px-8 md:py-5 bg-zinc-900 hover:bg-white rounded-2xl text-center text-white hover:text-black border text-base md:text-xl font-normal leading-6">Agendar Reunión</a>
+                <a href="/portfolio" class="px-5 py-3 md:px-8 md:py-5 bg-white hover:bg-zinc-900 rounded-2xl text-center text-black hover:text-white border text-base md:text-xl font-normal leading-6 btn-secondary">Ver Proyectos</a>
             </div>
         </div>
     </div>
-    <div class="flex items-center py-5 md:w-6/12 md:pb-20 md:pt-10">
-        <Image src={HeroIlust} alt="Hero Ilustration" loading="eager" />
+    <div class="hero-deco-wrapper flex items-center justify-center py-2 md:py-5 md:w-6/12 md:pb-20 md:pt-10" aria-hidden="true">
+      <div class="hero-deco">
+        <div class="hero-deco__gradient"></div>
+        <div class="hero-deco__circle hero-deco__circle--lg"></div>
+        <div class="hero-deco__circle hero-deco__circle--sm"></div>
+        <div class="hero-deco__dots"></div>
+        <div class="hero-deco__ring"></div>
+      </div>
     </div>
 </div>
 </Section>
+
+<style>
+  .hero-deco {
+    position: relative;
+    width: 480px;
+    height: 480px;
+    max-width: 100%;
+  }
+
+  @media (max-width: 767px) {
+    .hero-deco {
+      width: 160px;
+      height: 160px;
+    }
+
+    .hero-deco__circle--lg {
+      width: 130px;
+      height: 130px;
+    }
+
+    .hero-deco__circle--sm {
+      width: 70px;
+      height: 70px;
+    }
+
+    .hero-deco__ring {
+      width: 90px;
+      height: 90px;
+    }
+  }
+
+  .hero-deco__gradient {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 60% 40%, rgba(255, 147, 39, 0.25), transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero-deco__circle {
+    position: absolute;
+    border-radius: 50%;
+  }
+
+  .hero-deco__circle--lg {
+    width: 320px;
+    height: 320px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid rgba(255, 147, 39, 0.4);
+    animation: float-slow 6s ease-in-out infinite;
+  }
+
+  .hero-deco__circle--sm {
+    width: 160px;
+    height: 160px;
+    top: 20%;
+    right: 10%;
+    background: rgba(255, 147, 39, 0.15);
+    animation: float-fast 4s ease-in-out infinite;
+  }
+
+  .hero-deco__dots {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(25, 26, 35, 0.15) 1px, transparent 1px);
+    background-size: 24px 24px;
+    border-radius: 50%;
+  }
+
+  .hero-deco__ring {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    bottom: 10%;
+    left: 5%;
+    border: 1px solid rgba(255, 147, 39, 0.2);
+    border-radius: 50%;
+    animation: float-slow 8s ease-in-out infinite reverse;
+  }
+
+  .hero-deco-wrapper {
+    animation: fadeScaleIn 800ms ease-out forwards;
+  }
+
+  @media (max-width: 640px) {
+    .hero-deco-wrapper {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+  }
+</style>
+
+<script is:inline>
+  function adjustHeroPadding() {
+    const nav = document.querySelector('nav');
+    const hero = document.getElementById('hero');
+    if (!nav || !hero) return;
+    const navHeight = nav.getBoundingClientRect().height;
+    // On desktop (lg) the layout is side by side so no top padding needed
+    if (window.innerWidth >= 1024) {
+      hero.style.paddingTop = '0px';
+    } else {
+      hero.style.paddingTop = navHeight + 16 + 'px';
+    }
+  }
+  adjustHeroPadding();
+  window.addEventListener('resize', adjustHeroPadding);
+</script>

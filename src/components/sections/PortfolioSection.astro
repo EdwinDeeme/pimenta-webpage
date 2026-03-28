@@ -1,0 +1,235 @@
+---
+import { getCollection } from "astro:content";
+import Section from "./Section.astro";
+import SectionTitle from "../ui/SectionTitle.astro";
+import ProjectCard from "../ui/ProjectCard.astro";
+
+const allProjects = await getCollection("portfolio");
+const featuredProjects = allProjects.filter((p) => p.data.featured === true);
+const hasMore = featuredProjects.length > 3;
+
+const description = "Conoce algunos de los proyectos que hemos desarrollado para nuestros clientes.";
+---
+
+<Section id="portfolio">
+  <div class="mt-[140px]">
+    <SectionTitle sectionTitle="Proyectos" description={description} />
+
+    {featuredProjects.length > 0 ? (
+      <div class="portfolio-slider-wrapper">
+        <div class="portfolio-slider-viewport">
+          <div class="portfolio-track" id="portfolioTrack">
+            {featuredProjects.map((project) => (
+              <div class="portfolio-slide">
+                <ProjectCard
+                  title={project.data.title}
+                  description={project.data.description}
+                  image={project.data.image}
+                  tags={project.data.tags}
+                  slug={project.slug}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {hasMore && (
+          <div class="portfolio-nav">
+            <button id="portfolioPrev" class="portfolio-nav__btn" aria-label="Proyectos anteriores">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+              </svg>
+            </button>
+            <div class="portfolio-nav__dots" id="portfolioDots"></div>
+            <button id="portfolioNext" class="portfolio-nav__btn" aria-label="Proyectos siguientes">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </div>
+        )}
+      </div>
+    ) : (
+      <p class="text-center text-dark/60 py-16">Próximamente nuevos proyectos</p>
+    )}
+
+    <div class="flex justify-center mt-12">
+      <a href="/portfolio" class="btn-primary">Ver todos los proyectos</a>
+    </div>
+  </div>
+</Section>
+
+<style>
+  .portfolio-slider-wrapper {
+    position: relative;
+  }
+
+  .portfolio-slider-viewport {
+    overflow: hidden;
+    border-radius: 12px;
+  }
+
+  .portfolio-track {
+    display: flex;
+    gap: 2rem;
+    transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  .portfolio-slide {
+    flex-shrink: 0;
+    min-width: 0;
+  }
+
+  @media (max-width: 1023px) {
+    .portfolio-slide {
+      flex-shrink: 0;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .portfolio-slide {
+      flex-shrink: 0;
+    }
+  }
+
+  .portfolio-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .portfolio-nav__btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid var(--dark);
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 200ms ease, color 200ms ease;
+    color: var(--dark);
+    flex-shrink: 0;
+  }
+
+  .portfolio-nav__btn:hover:not(:disabled) {
+    background: var(--dark);
+    color: white;
+  }
+
+  .portfolio-nav__btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  .portfolio-nav__dots {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .portfolio-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--dark);
+    opacity: 0.25;
+    transition: opacity 200ms ease, transform 200ms ease, background 200ms ease;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+  }
+
+  .portfolio-dot.active {
+    opacity: 1;
+    transform: scale(1.35);
+    background: var(--accent);
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    const track = document.getElementById('portfolioTrack');
+    const prevBtn = document.getElementById('portfolioPrev');
+    const nextBtn = document.getElementById('portfolioNext');
+    const dotsContainer = document.getElementById('portfolioDots');
+
+    if (!track || !prevBtn || !nextBtn || !dotsContainer) return;
+
+    const slides = Array.from(track.querySelectorAll('.portfolio-slide'));
+    const total = slides.length;
+    const GAP = 32; // 2rem
+    let current = 0;
+
+    function getCols() {
+      if (window.innerWidth < 768) return 1;
+      if (window.innerWidth < 1024) return 2;
+      return 3;
+    }
+
+    function setSlideWidths() {
+      const cols = getCols();
+      const viewport = track.parentElement.offsetWidth;
+      const cardWidth = (viewport - GAP * (cols - 1)) / cols;
+      slides.forEach((slide) => {
+        slide.style.width = cardWidth + 'px';
+        slide.style.flex = '0 0 ' + cardWidth + 'px';
+      });
+      return cardWidth;
+    }
+
+    function getMaxIndex() {
+      return total - getCols();
+    }
+
+    function buildDots() {
+      dotsContainer.innerHTML = '';
+      const max = getMaxIndex();
+      for (let i = 0; i <= max; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'portfolio-dot' + (i === current ? ' active' : '');
+        dot.setAttribute('aria-label', 'Proyecto ' + (i + 1));
+        dot.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function updateDots() {
+      dotsContainer.querySelectorAll('.portfolio-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+    }
+
+    function goTo(index) {
+      const max = getMaxIndex();
+      current = Math.max(0, Math.min(index, max));
+      const cardWidth = slides[0].offsetWidth;
+      track.style.transform = 'translateX(-' + (current * (cardWidth + GAP)) + 'px)';
+      prevBtn.disabled = current === 0;
+      nextBtn.disabled = current >= max;
+      updateDots();
+    }
+
+    prevBtn.addEventListener('click', () => goTo(current - 1));
+    nextBtn.addEventListener('click', () => goTo(current + 1));
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        current = 0;
+        setSlideWidths();
+        buildDots();
+        goTo(0);
+      }, 150);
+    });
+
+    setSlideWidths();
+    buildDots();
+    goTo(0);
+  })();
+</script>
