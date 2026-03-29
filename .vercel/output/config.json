@@ -40,23 +40,11 @@
 			"dest": "_render"
 		},
 		{
-			"src": "^/articles/tag(?:/(.*?))?/?$",
-			"dest": "_render"
-		},
-		{
 			"src": "^/articles/?$",
 			"dest": "_render"
 		},
 		{
-			"src": "^/articles(?:/(.*?))?/?$",
-			"dest": "_render"
-		},
-		{
 			"src": "^/keystatic(?:/(.*?))?/?$",
-			"dest": "_render"
-		},
-		{
-			"src": "^/portfolio/([^/]+?)/?$",
 			"dest": "_render"
 		},
 		{

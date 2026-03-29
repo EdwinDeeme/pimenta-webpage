@@ -2,7 +2,7 @@
 import { a as createComponent, d as renderComponent, r as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_CWi-4Xom.mjs';
 import 'kleur/colors';
 import { $ as $$MainLayout } from '../chunks/MainLayout_DPVo62AF.mjs';
-import { $ as $$ArticleCard } from '../chunks/ArticleCard_B3Zzevo4.mjs';
+import { $ as $$ArticleCard } from '../chunks/ArticleCard_BLbavIyW.mjs';
 import { g as getCollection } from '../chunks/_astro_content_DdAnXpNS.mjs';
 export { renderers } from '../renderers.mjs';
 

@@ -30,7 +30,7 @@ const projects = await getCollection("portfolio");
             description={project.data.description}
             image={project.data.image}
             tags={project.data.tags}
-            slug={project.id}
+            slug={project.id.replace(/\.md$/, '')}
           />
         ))}
       </div>

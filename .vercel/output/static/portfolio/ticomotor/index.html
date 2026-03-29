@@ -1,0 +1,241 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-ouamjn2i> <head><meta charset="utf-8"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><!-- iOS 
+  <link rel="apple-touch-icon" sizes="256x256" href="/path/to/your/icon.png" />
+  --><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v5.0.9"><title>Sistema web para venta de autos | Pimenta Studio</title><meta name="description" content="Aplicación web para compra y venta de autos en Costa Rica."><!-- SEO --><link rel="canonical" href="https://pimenta.studio/portfolio/ticomotor/"><!-- Open Graph --><meta property="og:site_name" content="Site Name"><meta property="og:title" content="Sistema web para venta de autos | Pimenta Studio"><meta property="og:description" content="Aplicación web para compra y venta de autos en Costa Rica."><meta property="og:url" content="https://pimenta.studio/portfolio/ticomotor/"><meta property="og:image" content="https://github.com/manulthanura/Positivus/raw/main/public/cover.png"><meta property="og:image:url" content="https://github.com/manulthanura/Positivus/raw/main/public/cover.png"><meta property="og:image:secure_url" content="https://github.com/manulthanura/Positivus/raw/main/public/cover.png"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="600"><meta property="og:image:alt" content="Pimenta Studio"><!-- Twitter --><meta name="twitter:title" content="Sistema web para venta de autos | Pimenta Studio"><meta name="twitter:description" content="Aplicación web para compra y venta de autos en Costa Rica."><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://github.com/manulthanura/Positivus/raw/main/public/cover.png"><meta name="twitter:image:alt" content="Sistema web para venta de autos | Pimenta Studio"><!-- Using environment domain --><meta name="twitter:domain" content="https://pimenta.studio"><!-- JSON LD --><script type="application/ld+json">
+      {
+      "@context": "https://schema.org/",
+      "@type": "WebSite",
+      "name": "Pimenta Studio",
+      "url": "https://pimenta.studio"
+      }
+    </script><!-- Preconnect fonts, images... --><link rel="stylesheet" href="/_astro/keystatic-astro-page.B6wbV8YC.css">
+<link rel="stylesheet" href="/_astro/about.P9b0E_h5.css">
+<style>[data-astro-image]{width:100%;height:auto;-o-object-fit:var(--fit);object-fit:var(--fit);-o-object-position:var(--pos);object-position:var(--pos);aspect-ratio:var(--w) / var(--h)}[data-astro-image=responsive]{max-width:calc(var(--w) * 1px);max-height:calc(var(--h) * 1px)}[data-astro-image=fixed]{width:calc(var(--w) * 1px);height:calc(var(--h) * 1px)}
+</style></head><script type="module" src="/_astro/MainLayout.astro_astro_type_script_index_0_lang.DJ_3ciAv.js"></script><script>
+    function initScrollObserver() {
+      const elements = document.querySelectorAll('.animate-on-scroll');
+      if (!('IntersectionObserver' in window)) {
+        elements.forEach(el => el.classList.add('is-visible'));
+        return;
+      }
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const container = el.closest('[data-stagger-container]');
+            if (container) {
+              const siblings = Array.from(container.querySelectorAll('.animate-on-scroll'));
+              const index = siblings.indexOf(el);
+              el.style.transitionDelay = `${index * 100}ms`;
+            }
+            el.classList.add('is-visible');
+            observer.unobserve(el);
+          }
+        });
+      }, { threshold: 0.05, rootMargin: '0px 0px 0px 0px' });
+      elements.forEach(el => observer.observe(el));
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initScrollObserver);
+    } else {
+      initScrollObserver();
+    }
+    document.addEventListener('astro:after-swap', initScrollObserver);
+  </script><body class="bg-white font-grotesk" data-astro-cid-ouamjn2i> <main data-astro-cid-ouamjn2i> <div class="mt-20"> <nav class="w-full top-0 left-0 z-50 fixed bg-white"> <header class="flex flex-col lg:flex-row justify-between items-center my-3 px-6 md:px-32" id="main-header">  <div class="flex w-full lg:w-auto items-center justify-between"> <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse"> <img src="/Logo.svg" class="h-28 lg:h-20" alt="Logo"> </a> <div class="block lg:hidden"> <div id="menu-icon" class="w-8 h-8 text-black cursor-pointer"> <!-- Open (hamburger) icon --> <svg id="open-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-8 h-8"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> <!-- Close (X) icon --> <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-8 h-8 hidden"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path> </svg> </div> </div> </div> <nav class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0" id="menu-items"> <ul class="font-medium flex flex-col p-4 lg:p-0 mt-4 border rounded-lg lg:flex-row lg:space-x-8 lg:mt-0 lg:border-0"> <li> <a href="/#services" class="mobile-nav-link block py-2 px-3 text-black rounded lg:bg-transparent lg:p-0" data-close-menu="true"> Servicios </a> </li><li> <a href="/portfolio" class="mobile-nav-link block py-2 px-3 text-black rounded lg:bg-transparent lg:p-0" data-close-menu="true"> Proyectos </a> </li><li> <a href="/#products" class="mobile-nav-link block py-2 px-3 text-black rounded lg:bg-transparent lg:p-0" data-close-menu="true"> Productos </a> </li><li> <a href="/#contact" class="mobile-nav-link block py-2 px-3 text-black rounded lg:bg-transparent lg:p-0" data-close-menu="true"> Contacto </a> </li><li> <a href="/articles" class="mobile-nav-link block py-2 px-3 text-black rounded lg:bg-transparent lg:p-0" data-close-menu="true"> Blog </a> </li> <div class="lg:hidden flex items-center justify-center mt-3 gap-4"> <a class="mobile-nav-link px-9 py-5 rounded-2xl border border-zinc-900 bg-white hover:bg-black text-black hover:text-white inline-flex" href="https://api.whatsapp.com/send?phone=50663536621&text=Hola,%20estoy%20interesado%20en%20los%20servicios%20de%20Pimenta%20Studio." data-close-menu="true"> <h2 class="text-center text-xl font-normal leading-7">Agendar Reunión</h2> </a> </div> </ul> </nav>  <script>(function(){const closeOnClick = false;
+
+["DOMContentLoaded", "astro:after-swap"].forEach((event) => {
+  document.addEventListener(event, addListeners);
+});
+
+// Function to clone and replace elements
+function cloneAndReplace(element) {
+  const clone = element.cloneNode(true);
+  element.parentNode.replaceChild(clone, element);
+}
+
+function addListeners() {
+  // Clean up existing listeners
+  const oldMenuButton = document.getElementById("astronav-menu");
+  if (oldMenuButton) {
+    cloneAndReplace(oldMenuButton);
+  }
+
+  const oldDropdownMenus = document.querySelectorAll(".astronav-dropdown");
+  oldDropdownMenus.forEach((menu) => {
+    cloneAndReplace(menu);
+  });
+
+  // Mobile nav toggle
+  const menuButton = document.getElementById("astronav-menu");
+  menuButton && menuButton.addEventListener("click", toggleMobileNav);
+
+  // Dropdown menus
+  const dropdownMenus = document.querySelectorAll(".astronav-dropdown");
+  dropdownMenus.forEach((menu) => {
+    const button = menu.querySelector("button");
+    button &&
+      button.addEventListener("click", (event) =>
+        toggleDropdownMenu(event, menu, dropdownMenus)
+      );
+
+    // Handle Submenu Dropdowns
+    const dropDownSubmenus = menu.querySelectorAll(
+      ".astronav-dropdown-submenu"
+    );
+
+    dropDownSubmenus.forEach((submenu) => {
+      const submenuButton = submenu.querySelector("button");
+      submenuButton &&
+        submenuButton.addEventListener("click", (event) => {
+          event.stopImmediatePropagation();
+          toggleSubmenuDropdown(event, submenu);
+        });
+    });
+  });
+
+  // Clicking away from dropdown will remove the dropdown class
+  document.addEventListener("click", closeAllDropdowns);
+
+  if (closeOnClick) {
+    handleCloseOnClick();
+  }
+}
+
+function toggleMobileNav() {
+  [...document.querySelectorAll(".astronav-toggle")].forEach((el) => {
+    el.classList.toggle("hidden");
+  });
+}
+
+function toggleDropdownMenu(event, menu, dropdownMenus) {
+  toggleMenu(menu);
+
+  // Close one dropdown when selecting another
+  Array.from(dropdownMenus)
+    .filter((el) => el !== menu && !menu.contains(el))
+    .forEach(closeMenu);
+
+  event.stopPropagation();
+}
+
+function toggleSubmenuDropdown(event, submenu) {
+  event.stopPropagation();
+  toggleMenu(submenu);
+
+  // Close sibling submenus at the same nesting level
+  const siblingSubmenus = submenu
+    .closest(".astronav-dropdown")
+    .querySelectorAll(".astronav-dropdown-submenu");
+  Array.from(siblingSubmenus)
+    .filter((el) => el !== submenu && !submenu.contains(el))
+    .forEach(closeMenu);
+}
+
+function closeAllDropdowns(event) {
+  const dropdownMenus = document.querySelectorAll(".dropdown-toggle");
+  const dropdownParent = document.querySelectorAll(
+    ".astronav-dropdown, .astronav-dropdown-submenu"
+  );
+  const isButtonInsideDropdown = [
+    ...document.querySelectorAll(
+      `.astronav-dropdown button, .astronav-dropdown label, .astronav-dropdown input,
+	  .astronav-dropdown-submenu button, .astronav-dropdown-submenu label, .astronav-dropdown-submenu input,
+	  #astronav-menu`
+    ),
+  ].some((button) => button.contains(event.target));
+  if (!isButtonInsideDropdown) {
+    dropdownMenus.forEach((d) => {
+      // console.log("I ran", d);
+      // if (!d.contains(event.target)) {
+      d.classList.remove("open");
+      d.removeAttribute("open");
+      d.classList.add("hidden");
+      // }
+    });
+    dropdownParent.forEach((d) => {
+      d.classList.remove("open");
+      d.removeAttribute("open");
+      d.setAttribute("aria-expanded", "false");
+    });
+  }
+}
+
+function toggleMenu(menu) {
+  menu.classList.toggle("open");
+  const expanded = menu.getAttribute("aria-expanded") === "true";
+  menu.setAttribute("aria-expanded", expanded ? "false" : "true");
+  menu.hasAttribute("open")
+    ? menu.removeAttribute("open")
+    : menu.setAttribute("open", "");
+
+  const dropdownToggle = menu.querySelector(".dropdown-toggle");
+  const dropdownExpanded = dropdownToggle.getAttribute("aria-expanded");
+  dropdownToggle.classList.toggle("hidden");
+  dropdownToggle.setAttribute(
+    "aria-expanded",
+    dropdownExpanded === "true" ? "false" : "true"
+  );
+}
+
+function closeMenu(menu) {
+  // console.log("closing", menu);
+  menu.classList.remove("open");
+  menu.removeAttribute("open");
+  menu.setAttribute("aria-expanded", "false");
+  const dropdownToggles = menu.querySelectorAll(".dropdown-toggle");
+  dropdownToggles.forEach((toggle) => {
+    toggle.classList.add("hidden");
+    toggle.setAttribute("aria-expanded", "false");
+  });
+}
+
+function handleCloseOnClick() {
+  const navMenuItems = document.querySelector(".astronav-items");
+  const navToggle = document.getElementById("astronav-menu");
+  const navLink = navMenuItems && navMenuItems.querySelectorAll("a");
+
+  const MenuIcons = navToggle.querySelectorAll(".astronav-toggle");
+
+  navLink &&
+    navLink.forEach((item) => {
+      item.addEventListener("click", () => {
+        navMenuItems?.classList.add("hidden");
+        MenuIcons.forEach((el) => {
+          el.classList.toggle("hidden");
+        });
+      });
+    });
+}
+})();</script> <div> <div class="hidden lg:flex items-center gap-4"> <a class="px-9 py-5 rounded-2xl border border-zinc-900 bg-white hover:bg-black text-black hover:text-white inline-flex" href="https://api.whatsapp.com/send?phone=50663536621&text=Hola,%20estoy%20interesado%20en%20los%20servicios%20de%20Pimenta%20Studio."> <h2 class="text-center text-xl font-normal leading-7">Agendar Reunión</h2> </a> </div> </div> </header> </nav> </div> <script>
+  // Get references to the menu icon, open/close icons, and menu items
+  const menuIcon = document.getElementById('menu-icon');
+  const openIcon = document.getElementById('open-icon');
+  const closeIcon = document.getElementById('close-icon');
+  const menuItems = document.getElementById('menu-items');
+  const closeMenuItems = document.querySelectorAll('[data-close-menu="true"]');  // Select all items with the 'data-close-menu' attribute
+
+  // Toggle the menu visibility and icon when the menu icon is clicked
+  menuIcon.addEventListener('click', () => {
+    menuItems.classList.toggle('hidden');  // Toggle the 'hidden' class on the menu
+
+    // Toggle between open and close icons
+    openIcon.classList.toggle('hidden');
+    closeIcon.classList.toggle('hidden');
+  });
+
+  // Close the menu when any item is clicked
+  closeMenuItems.forEach(item => {
+    item.addEventListener('click', () => {
+      menuItems.classList.add('hidden');  // Add the 'hidden' class to hide the menu
+      openIcon.classList.remove('hidden');  // Show the open (hamburger) icon
+      closeIcon.classList.add('hidden');  // Hide the close (X) icon
+    });
+  });
+</script>  <main class="pt-32 pb-20 px-4 mx-auto max-w-screen-lg"> <!-- Back link --> <a href="/portfolio" class="inline-flex items-center gap-2 text-dark/70 hover:text-dark font-medium mb-8 transition-colors duration-200"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-5 w-5"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"></path> </svg>
+Volver a Proyectos
+</a> <!-- Cover image --> <img src="/proyectos/website-ticomotor.png" alt="Sistema web para venta de autos" class="w-full h-auto rounded-2xl mb-10 object-cover max-h-[480px]"> <!-- Header --> <div class="mb-8"> <h1 class="text-4xl sm:text-5xl font-bold text-dark mb-4">Sistema web para venta de autos</h1> <p class="text-dark/70 text-lg mb-6">Aplicación web para compra y venta de autos en Costa Rica.</p> <!-- Meta: client, year --> <div class="flex flex-wrap gap-6 text-sm text-dark/60 mb-6"> <span> <span class="font-semibold text-dark">Cliente:</span> Ticomotor </span> <span> <span class="font-semibold text-dark">Año:</span> 2024 </span> </div> <!-- Tags --> <div class="flex flex-wrap gap-2 mb-6"> <span class="bg-gray-100 text-dark text-sm font-medium px-3 py-1 rounded-full border border-dark/10"> Rect </span><span class="bg-gray-100 text-dark text-sm font-medium px-3 py-1 rounded-full border border-dark/10"> TailwindCSS </span><span class="bg-gray-100 text-dark text-sm font-medium px-3 py-1 rounded-full border border-dark/10"> IA </span> </div> <!-- Live URL button --> <a href="https://ticomotor.es" target="_blank" rel="noopener noreferrer" class="btn-primary inline-flex items-center gap-2">
+Ver proyecto en vivo
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-4 w-4"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path> </svg> </a> </div> <hr class="border-dark/10 mb-8"> <!-- Markdown content --> <div class="content"> <p>Ticomotor necesitaba una plataforma moderna que simplificara el proceso de compra y venta de vehículos en Costa Rica. Desarrollamos una aplicación web completa con catálogo de autos, filtros avanzados de búsqueda, fichas detalladas por vehículo y un sistema de contacto directo entre compradores y vendedores.</p>
+<p>La integración de inteligencia artificial fue el elemento central del proyecto. Implementamos un asistente que ayuda a los usuarios a encontrar el vehículo ideal según su presupuesto, preferencias y necesidades, mejorando significativamente la experiencia de búsqueda y reduciendo el tiempo hasta la decisión de compra.</p>
+<p>La plataforma se está posicionando rápidamente, aunque es bastente nueva, su estructura causa mucha confianza entre los usuarios.</p> </div> </main>  <section class="sm:px-5"> <div class="w-full max-w-[1240px] mx-auto"> <div class="px-[15px] bg-dark text-gray py-[55px] lg:px-[60px] sm:rounded-t-[45px]"> <div> <div class="flex flex-col lg:flex-row gap-7 items-center justify-between"> <picture> <a href="#home"> <img src="/_astro/Logo.VR4tAeGD_Z26k1Sb.svg" alt="Logo Pimenta Studio" style="filter: brightness(0) invert(1)" width="1920" height="1080" loading="lazy" decoding="async" class="w-auto h-20"> </a> </picture> <ul class="flex flex-col sm:flex-row gap-5"> <li class="text-center"> <a class="underline" href="/#services"> Servicios </a> </li><li class="text-center"> <a class="underline" href="/portfolio"> Proyectos </a> </li><li class="text-center"> <a class="underline" href="/#products"> Productos </a> </li><li class="text-center"> <a class="underline" href="/articles"> Blog </a> </li> </ul> <ul class="flex gap-5"> <li> <a href="https://facebook.com" target="_blank"> <picture> <img src="/_astro/facebook.BzAcwkrD_Z1lKKlD.svg" alt="Facebook" width="30" height="30" loading="lazy" decoding="async"> </picture> </a> </li><li> <a href="https://linkedin.com" target="_blank"> <picture> <img src="/_astro/linkedin.DOEK8ivh_1FghIX.svg" alt="Linkedin" width="30" height="30" loading="lazy" decoding="async"> </picture> </a> </li><li> <a href="https://twitter.com" target="_blank"> <picture> <img src="/_astro/twitter.Bu3NkgPL_Z1gBUw5.svg" alt="Twitter" width="30" height="30" loading="lazy" decoding="async"> </picture> </a> </li> </ul> </div> <div class="flex flex-col lg:flex-row mt-[66px] mb-[51px]"> <div class="flex text-center lg:text-start flex-col w-full lg:w-[30%]"> <h3 class="mb-5 text-center md:text-left text-2xl text-green">Contáctanos</h3> <div class="flex flex-col justify-between gap-4"> <span> Email: contacto@pimenta.studio </span> <span> Teléfono: +506 6353 6621 </span> <span class="lg:w-3/4">
+Dirección: San José, Costa Rica.
+</span> </div> </div> <div class="flex-grow my-10 lg:my-0 lg:ml-12"> <form class="bg-[#292A32] px-10 py-10 rounded-[14px] gap-5  flex flex-col sm:flex-row items-center justify-center"> <div class="w-full sm:w-[55%]"> <input type="text" id="email" name="email" placeholder="Email" class="bg-transparent w-full px-[35px] py-5 border rounded-[14px] focus:outline-none"> </div> <button type="submit" name="submit" class="w-full sm:w-[45%] btn-tertiary">Te contactaremos pronto</button> </form> </div> </div> </div> <div class="h-[1px] bg-gray mb-5"></div> <div class="flex flex-col lg:flex-row h-20 justify-center mt-4 text-center md:justify-between md:mt-0"> <span class="w-full flex justify-center">© 2024 Pimenta Studio. Todos los derechos reservados.</span> <span></span></div> </div> </div> </section> </main> </body></html>
