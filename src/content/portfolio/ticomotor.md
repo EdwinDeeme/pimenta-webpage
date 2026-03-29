@@ -4,7 +4,7 @@ description: "Aplicación web para compra y venta de autos en Costa Rica."
 client: "Ticomotor"
 year: 2024
 tags: ["Rect", "TailwindCSS", "IA"]
-image: "/proyectos/ticomotor-web.png"
+image: "/proyectos/website-ticomotor.png"
 liveUrl: "https://ticomotor.es"
 featured: true
 ---

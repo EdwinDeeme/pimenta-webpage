@@ -4,7 +4,7 @@ description: "Sitio web moderno con motor de reservar para cabañas don ramiro, 
 client: "Cabañas don Ramiro"
 year: 2024
 tags: ["Wordpress", "Element", "Bookings"]
-image: "/proyectos/donramiro-web.png"
+image: "/proyectos/website-donramiro.png"
 liveUrl: "https://cabanasdonramiro.com"
 featured: true
 ---

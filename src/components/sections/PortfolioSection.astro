@@ -26,7 +26,7 @@ const description = "Conoce algunos de los proyectos que hemos desarrollado para
                   description={project.data.description}
                   image={project.data.image}
                   tags={project.data.tags}
-                  slug={project.slug}
+                  slug={project.id}
                 />
               </div>
             ))}
@@ -154,21 +154,21 @@ const description = "Conoce algunos de los proyectos que hemos desarrollado para
 <script is:inline>
   (function () {
     const track = document.getElementById('portfolioTrack');
-    const prevBtn = document.getElementById('portfolioPrev');
-    const nextBtn = document.getElementById('portfolioNext');
-    const dotsContainer = document.getElementById('portfolioDots');
-
-    if (!track || !prevBtn || !nextBtn || !dotsContainer) return;
+    if (!track) return;
 
     const slides = Array.from(track.querySelectorAll('.portfolio-slide'));
     const total = slides.length;
-    const GAP = 32; // 2rem
+    const GAP = 32;
     let current = 0;
 
+    const prevBtn = document.getElementById('portfolioPrev');
+    const nextBtn = document.getElementById('portfolioNext');
+    const dotsContainer = document.getElementById('portfolioDots');
+    const hasNav = prevBtn && nextBtn && dotsContainer;
+
     function getCols() {
-      if (window.innerWidth < 768) return 1;
-      if (window.innerWidth < 1024) return 2;
-      return 3;
+      const cols = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+      return Math.min(cols, total); // never more cols than slides
     }
 
     function setSlideWidths() {
@@ -179,14 +179,14 @@ const description = "Conoce algunos de los proyectos que hemos desarrollado para
         slide.style.width = cardWidth + 'px';
         slide.style.flex = '0 0 ' + cardWidth + 'px';
       });
-      return cardWidth;
     }
 
     function getMaxIndex() {
-      return total - getCols();
+      return Math.max(0, total - getCols());
     }
 
     function buildDots() {
+      if (!dotsContainer) return;
       dotsContainer.innerHTML = '';
       const max = getMaxIndex();
       for (let i = 0; i <= max; i++) {
@@ -199,6 +199,7 @@ const description = "Conoce algunos de los proyectos que hemos desarrollado para
     }
 
     function updateDots() {
+      if (!dotsContainer) return;
       dotsContainer.querySelectorAll('.portfolio-dot').forEach((d, i) => {
         d.classList.toggle('active', i === current);
       });
@@ -209,13 +210,13 @@ const description = "Conoce algunos de los proyectos que hemos desarrollado para
       current = Math.max(0, Math.min(index, max));
       const cardWidth = slides[0].offsetWidth;
       track.style.transform = 'translateX(-' + (current * (cardWidth + GAP)) + 'px)';
-      prevBtn.disabled = current === 0;
-      nextBtn.disabled = current >= max;
+      if (prevBtn) prevBtn.disabled = current === 0;
+      if (nextBtn) nextBtn.disabled = current >= max;
       updateDots();
     }
 
-    prevBtn.addEventListener('click', () => goTo(current - 1));
-    nextBtn.addEventListener('click', () => goTo(current + 1));
+    if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
+    if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
 
     let resizeTimer;
     window.addEventListener('resize', () => {

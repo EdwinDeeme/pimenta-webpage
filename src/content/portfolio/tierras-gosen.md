@@ -4,7 +4,7 @@ description: "Sitio web para Tierras Gosén, secciones de contacto, conectada a 
 client: "Tierras Gosén"
 year: 2023
 tags: ["Wordpress", "Element", "ManyChat"]
-image: "/proyectos/gosen-web.png"
+image: "/proyectos/website-gosen.png"
 liveUrl: "https://tierrasgosen.com/"
 featured: true
 ---

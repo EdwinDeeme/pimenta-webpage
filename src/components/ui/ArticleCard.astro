@@ -13,7 +13,7 @@ const imageUrl = article.data.image.startsWith('/')
   : '/blog/' + article.data.image;
 ---
 
-<a href={'/articles/' + article.slug} class="article-card group animate-on-scroll">
+<a href={'/articles/' + article.id} class="article-card group animate-on-scroll">
   <!-- Image -->
   <div class="article-card__img-wrapper">
     <img src={imageUrl} alt={article.data.title} class="article-card__img" />

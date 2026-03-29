@@ -3,7 +3,7 @@ title: "Cómo aumentamos las reservas directas de Cabañas Don Ramiro con un sit
 pubDate: 2024-03-10
 author: 'Pimenta Studio'
 authImage: '/Logo.svg'
-image: '/proyectos/donramiro-web.png'
+image: '/proyectos/website-donramiro.png'
 tags: ['wordpress', 'reservas', 'turismo', 'caso-de-exito']
 slug: cabanas-don-ramiro-caso-de-exito
 summary: "Cabañas Don Ramiro dependía completamente de Booking y Airbnb para sus reservas. Desarrollamos un sitio web con motor de reservas propio que sincroniza con ambas plataformas y aumentó sus reservas directas significativamente."

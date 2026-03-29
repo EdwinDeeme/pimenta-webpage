@@ -3,6 +3,8 @@ import MainLayout from "../../../layouts/MainLayout.astro";
 import ArticleCard from "../../../components/ui/ArticleCard.astro";
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from "astro:content";
+
+export const prerender = true;
 import { capitalize } from "../../../utils";
 
 export async function getStaticPaths() {
@@ -10,7 +12,6 @@ export async function getStaticPaths() {
   const tags = [...new Set(allBlogArticles.flatMap(article => article.data.tags ?? []))];
   return tags.map(tag => ({ params: { tag } }));
 }
-
 const { tag } = Astro.params;
 
 if(tag === undefined) {

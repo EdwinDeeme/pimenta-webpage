@@ -1,0 +1,66 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import Tags from "../../components/ui/Tags.astro";
+import { getCollection, render } from 'astro:content';
+import { formatDate } from "../../utils";
+
+export async function getStaticPaths() {
+  const entries = await getCollection('blog');
+  return entries.map(entry => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<MainLayout title={`${entry.data.title} | Pimenta Studio`} description={entry.data.summary}>
+  <main class="pt-32 pb-20 px-4 mx-auto max-w-screen-md">
+
+    <!-- Back -->
+    <a href="/articles" class="inline-flex items-center gap-2 text-dark/60 hover:text-dark font-medium mb-10 transition-colors">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+      </svg>
+      Volver al Blog
+    </a>
+
+    <!-- Header -->
+    <div class="mb-8">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-medium px-3 py-1 rounded-full bg-[#fff3e0] text-[#b85c00] border border-[#ff9327]">
+          {entry.data.type}
+        </span>
+        <span class="text-sm text-dark/50">{formatDate(entry.data.pubDate)}</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-medium text-dark leading-tight mb-4">{entry.data.title}</h1>
+      <p class="text-dark/60 text-lg leading-relaxed mb-6">{entry.data.summary}</p>
+
+      <!-- Author -->
+      <div class="flex items-center gap-3 pb-6 border-b border-dark/10">
+        <img src={entry.data.authImage} alt={entry.data.author} class="w-10 h-10 rounded-full object-cover" />
+        <span class="font-medium text-dark">{entry.data.author}</span>
+      </div>
+    </div>
+
+    <!-- Cover image -->
+    <img
+      src={entry.data.image.startsWith('/') ? entry.data.image : '/blog/' + entry.data.image}
+      alt={entry.data.title}
+      class="w-full h-auto rounded-2xl mb-10 object-cover max-h-[420px]"
+    />
+
+    <!-- Tags -->
+    <div class="mb-8">
+      <Tags tags={entry.data.tags} />
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+      <Content />
+    </div>
+
+  </main>
+</MainLayout>

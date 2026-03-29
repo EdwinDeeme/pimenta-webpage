@@ -1,19 +1,21 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
 import Tags from "../../components/ui/Tags.astro";
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import { formatDate } from "../../utils";
+
+export const prerender = true;
 
 export async function getStaticPaths() {
   const entries = await getCollection('blog');
   return entries.map(entry => ({
-    params: { slug: entry.slug },
+    params: { slug: entry.id },
     props: { entry },
   }));
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 ---
 
 <MainLayout title={`${entry.data.title} | Pimenta Studio`} description={entry.data.summary}>
